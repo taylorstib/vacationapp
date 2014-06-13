@@ -15,24 +15,15 @@
 		<!-- Form for the destination and other trip info -->
 		<div class="pure-g">
 			<form action="/" method="post" class="pure-u-1-2">
-				<fieldset class="theform">
-				<legend>Trip Info</legend>
-					<label>Origin</label><input type="text" name="origin">
-					<label>Destination</label><input type="text" name="destination">
-					<label>Transportation</label><select name="transportation">
-						<option value="-" selected>-</option>
-						<option value="flight">Flight</option>
-						<option value="train">Train</option>
-						<option value="car">Car</option>
-						<option value="cruise">Cruise</option>
-						<option value="Bus">Bus</option>
-					</select><br>
-					<label>How much can you spend on this vacation?</label><input type="number" name="budget" required>
+					<label>Name</label><input type="text" name="name">
 					<input type="submit" value="Submit" action="button" id="btn">
-				</fieldset>
+			</form>
+			
+			<form action="/" method="post" class="pure-u-1-2">
+					<label>To do item</label><input type="text" name="todo">
+					<input type="submit" value="Submit" action="button" id="btn">
 			</form>
 		</div>
-		<div class="pure-u-1-2"></div>
 	</body>
 
 
