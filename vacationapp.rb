@@ -5,15 +5,23 @@ configure do
 	enable :sessions
 end
 
-helpers do
-	def sess
-		session['todo']
-	end
-end
-
 get '/' do
 	erb :index
+	#include user_budget local variable
 end
+
+post '/' do
+	params[:budget] ||= []
+	session[:user_budget] ||= []
+	session[:user_budget] = params[:budget]
+	erb :budget, :local => {:user_budget => session[:user_budget]}
+end
+
+get '/budget' do
+	#show user budget
+end
+
+
 
 get '/checklist' do
 	params[:todo] ||= []
