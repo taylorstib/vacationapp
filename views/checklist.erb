@@ -13,13 +13,26 @@
 		<h1>We are here to help you plan your next vacation</h1>
 
 		<!-- Form for the destination and other trip info -->
-		<div class="pure-g">
-			<form action="/" method="post" class="pure-u-1-2">
+		<div>
+			<form action="/" method="post">
 					<label>Name</label><input type="text" name="name">
 					<input type="submit" value="Submit" action="button" id="btn">
 			</form>
+		</div>
 			
-			<form action="/" method="post" class="pure-u-1-2">
+
+
+			<ul>
+				<% array_todo.each do |item| %>
+					<li><%= item %></li>
+				<% end %>
+				<% user_todo.each do |user_item| %>
+					<li><%= user_item %></li>
+				<% end %>
+
+			</ul>
+		<div>
+			<form action="/checklist" method="post">
 					<label>To do item</label><input type="text" name="todo">
 					<input type="submit" value="Submit" action="button" id="btn">
 			</form>
