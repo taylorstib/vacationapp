@@ -21,11 +21,6 @@ get '/budget' do
 	erb :budget, :locals => {:user_budget => session[:user_budget]}
 end
 
-class Budget
-	def self.add
-
-
-end
 
 
 get '/checklist' do
