@@ -11,16 +11,22 @@ get '/' do
 end
 
 post '/budget' do
-	params[:budget] ||= []
-	session[:user_budget] ||= []
-	session[:user_budget] = params[:budget]
-	session[:transportation] = params[:transportation]
-	session[:lodging] = params[:lodging]
-	session[:amenities] = params[:amenities]
-	session[:dining] = params[:dining]
-	session[:other] = params[:other]
-	budget_items = Budget.new(user_budget, transportation, lodging, amenities, dining, other)
-	session[:total_box] = budget_items.remaining
+	if params[:action]=="calc_budget"
+		session[:user_budget] ||= []
+		session[:user_budget] = params[:budget]
+		session[:transportation] = params[:transportation]
+		session[:lodging] = params[:lodging]
+		session[:amenities] = params[:amenities]
+		session[:dining] = params[:dining]
+		session[:other] = params[:other]
+		budget_items = Budget.new(user_budget, transportation, lodging, amenities, dining, other)
+		session[:total_box] = budget_items.remaining
+	else 
+		params[:budget] ||= []
+		session[:user_budget] ||= []
+		session[:user_budget] = params[:budget]
+		session[:total_box] = session[:user_budget]
+	end
 	erb :budget, :locals => {:user_budget => session[:user_budget],
 							 :transportation => session[:transportation],
 							 :lodging => session[:lodging],
@@ -52,7 +58,7 @@ class Budget
 
 	attr_reader :elements, :elements_total, :totalbudget
 
-	def self.remaining
+	def remaining
 		remaining_budget = @totalbudget - @elements_total
 	end
 end
