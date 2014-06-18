@@ -11,15 +11,14 @@ get '/' do
 end
 
 post '/budget' do
-	if params[:action] == "Calculate"
-		session[:user_budget] = params[:budget].to_f
+		if params[:action] == "Calculate"
+		session[:user_budget] = params[:totalbudget].to_f
 		session[:transportation] = params[:transportation].to_f
 		session[:lodging] = params[:lodging].to_f
 		session[:amenities] = params[:amenities].to_f
 		session[:dining] = params[:dining].to_f
 		session[:other] = params[:other].to_f
-		budget_items = Budget.new(session[:user_budget] , session[:transportation],
-		session[:lodging], session[:amenities], session[:dining], session[:other])
+		budget_items = Budget.new(session[:user_budget] , session[:transportation], session[:lodging], session[:amenities], session[:dining], session[:other]) 
 		session[:total_box_update] = budget_items.remaining.to_f
 	 else
 		params[:budget] ||= []
