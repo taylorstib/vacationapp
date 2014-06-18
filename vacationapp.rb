@@ -6,21 +6,26 @@ configure do
 end
 
 get '/' do
-	erb :index
-	#include user_budget local variable
+	session[:user_budget] ||= []
+ 	erb :index, :locals => {:user_budget => session[:user_budget]}
 end
 
-post '/' do
+post '/budget' do
 	params[:budget] ||= []
 	session[:user_budget] ||= []
 	session[:user_budget] = params[:budget]
-	erb :budget, :local => {:user_budget => session[:user_budget]}
+	erb :budget, :locals => {:user_budget => session[:user_budget]}
 end
 
 get '/budget' do
-	#show user budget
+	erb :budget, :locals => {:user_budget => session[:user_budget]}
 end
 
+class Budget
+	def self.add
+
+
+end
 
 
 get '/checklist' do

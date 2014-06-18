@@ -11,14 +11,16 @@
 			<a href="#">Home</a> | <a href="#">Budget</a> | <a href="#">To Do</a> | <a href="#">Amenities</a> | <a href="transportation.erb">Transportation</a> | <a href="lodging.erb">Lodging</a>
 		</div>
 		<h1>We are here to help you plan your next vacation</h1>
-
 		<div>
-			<%= user_budget %>
-	<!-- 		# <form action="/budget" method="post">
-
-			# 		<label></label><input type="text" name="name">
-			# 		<input type="submit" value="Submit" action="button" id="btn">
-			# </form> -->
+			 <form action="/budget" method="post">
+			 	<label> Total Budget </label> <input type="number" name="totalbudget" value=<%= user_budget %> >
+			 	<label>Transportation</label><input type="number" name="transportation">
+			 	<label>Lodging</label><input type="number" name="lodging">
+			 	<label>Amenities</label><input type="number" name="amenities">
+			 	<label>Dining</label><input type="number" name="dining">
+			 	<label>Other costs (insurance, visa, vaccines, etc)</label><input type="number" name="other">
+			 	<input type="submit" value="Submit" action="button" id="btn">
+			 </form>
 		</div>
 
 	</body>
