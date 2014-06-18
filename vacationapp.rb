@@ -14,18 +14,50 @@ post '/budget' do
 	params[:budget] ||= []
 	session[:user_budget] ||= []
 	session[:user_budget] = params[:budget]
-	erb :budget, :locals => {:user_budget => session[:user_budget]}
+	session[:transportation] = params[:transportation]
+	session[:lodging] = params[:lodging]
+	session[:amenities] = params[:amenities]
+	session[:dining] = params[:dining]
+	session[:other] = params[:other]
+	budget_items = Budget.new(user_budget, transportation, lodging, amenities, dining, other)
+	session[:total_box] = budget_items.remaining
+	erb :budget, :locals => {:user_budget => session[:user_budget],
+							 :transportation => session[:transportation],
+							 :lodging => session[:lodging],
+							 :amenities => session[:amenities],
+							 :dining => session[:dining],
+							 :other => session[:other],
+							 :total_box => session[:total_box]}
 end
 
 get '/budget' do
-	erb :budget, :locals => {:user_budget => session[:user_budget]}
+	session ||= {}
+	# session[:totalbudget] = session[:user_budget]
+	# took out the params stuff
+	erb :budget, :locals => {:user_budget => session[:user_budget],
+							 :transportation => session[:transportation],
+							 :lodging => session[:lodging],
+							 :amenities => session[:amenities],
+							 :dining => session[:dining],
+							 :other => session[:other],
+							 :total_box => session[:total_box]}
 end
 
 class Budget
-	def self.add
+	def initialize(user_budget, transportation, lodging, amenities, dining, other)
+		@totalbudget = user_budget
+		@elements = [transportation, lodging, amenities, dining, other]
+		@elements_total = @elements.inject(:+)
+	end
 
+	attr_reader :elements, :elements_total, :totalbudget
 
+	def self.remaining
+		remaining_budget = @totalbudget - @elements_total
+	end
 end
+
+
 
 
 get '/checklist' do

@@ -14,15 +14,15 @@
 		<div>
 			 <form action="/budget" method="post">
 			 	<label> Total Budget </label> <input type="number" name="totalbudget" value=<%= user_budget %> >
-			 	<label>Transportation</label><input type="number" name="transportation">
-			 	<label>Lodging</label><input type="number" name="lodging">
-			 	<label>Amenities</label><input type="number" name="amenities">
-			 	<label>Dining</label><input type="number" name="dining">
-			 	<label>Other costs (insurance, visa, vaccines, etc)</label><input type="number" name="other">
+			 	<label>Transportation</label><input type="number" name="transportation" value="0">
+			 	<label>Lodging</label><input type="number" name="lodging" value="0">
+			 	<label>Amenities</label><input type="number" name="amenities" value="0">
+			 	<label>Dining</label><input type="number" name="dining" value="0">
+			 	<label>Other costs (insurance, visa, vaccines, etc)</label><input type="number" name="other" value="0">
 			 	<input type="submit" value="Submit" action="button" id="btn">
 			 </form>
 		</div>
-
+		<div><%= total_box %></div>
 	</body>
 
 
