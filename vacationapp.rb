@@ -11,21 +11,21 @@ get '/' do
 end
 
 post '/budget' do
-	if params[:action]=="calc_budget"
-		session[:user_budget] ||= []
-		session[:user_budget] = params[:budget]
-		session[:transportation] = params[:transportation]
-		session[:lodging] = params[:lodging]
-		session[:amenities] = params[:amenities]
-		session[:dining] = params[:dining]
-		session[:other] = params[:other]
-		budget_items = Budget.new(user_budget, transportation, lodging, amenities, dining, other)
-		session[:total_box] = budget_items.remaining
-	else 
+	if params[:action] == "Calculate"
+		session[:user_budget] = params[:budget].to_f
+		session[:transportation] = params[:transportation].to_f
+		session[:lodging] = params[:lodging].to_f
+		session[:amenities] = params[:amenities].to_f
+		session[:dining] = params[:dining].to_f
+		session[:other] = params[:other].to_f
+		budget_items = Budget.new(session[:user_budget] , session[:transportation],
+		session[:lodging], session[:amenities], session[:dining], session[:other])
+		session[:total_box_update] = budget_items.remaining.to_f
+	 else
 		params[:budget] ||= []
 		session[:user_budget] ||= []
-		session[:user_budget] = params[:budget]
-		session[:total_box] = session[:user_budget]
+		session[:user_budget] = params[:budget].to_f
+		session[:total_box] = session[:user_budget].to_f
 	end
 	erb :budget, :locals => {:user_budget => session[:user_budget],
 							 :transportation => session[:transportation],
@@ -33,7 +33,8 @@ post '/budget' do
 							 :amenities => session[:amenities],
 							 :dining => session[:dining],
 							 :other => session[:other],
-							 :total_box => session[:total_box]}
+							 :total_box => session[:total_box],
+							 :total_box_update => session[:total_box_update]}
 end
 
 get '/budget' do
@@ -46,13 +47,19 @@ get '/budget' do
 							 :amenities => session[:amenities],
 							 :dining => session[:dining],
 							 :other => session[:other],
-							 :total_box => session[:total_box]}
+							 :total_box => session[:total_box],
+							 :total_box_update => session[:total_box_update]}
 end
 
 class Budget
 	def initialize(user_budget, transportation, lodging, amenities, dining, other)
 		@totalbudget = user_budget
-		@elements = [transportation, lodging, amenities, dining, other]
+		@transportation = transportation
+		@lodging = lodging
+		@amenities = amenities
+		@dining = dining
+		@other = other
+		@elements = [@transportation, @lodging, @amenities, @dining, @other]
 		@elements_total = @elements.inject(:+)
 	end
 
