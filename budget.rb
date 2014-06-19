@@ -38,9 +38,13 @@ class Bills
 
 		array_bills_split = array_bills.zip(array_split)
 
-		array_bills_split.each_with_index do |item, index|
-			item[index][0]/item[index][1]
-			
+		@expense_per_person = []
+
+		array_bills_split.each do |item|
+			result = item[0]/item[1]
+			@expense_per_person << result
 		end
+
+		sum_expense_per_person = @expense_per_person.inject(:+)
 	end
 end
