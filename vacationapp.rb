@@ -51,6 +51,32 @@ get '/budget' do
 							 :total_box_update => session[:total_box_update]}
 end
 
+get '/bills' do
+	session ||= {}
+
+	erb :bills, :locals => {:user_budget => session[:user_budget],
+							 :transportation => session[:transportation],
+							 :lodging => session[:lodging],
+							 :amenities => session[:amenities],
+							 :dining => session[:dining],
+							 :other => session[:other],
+							 :total_box => session[:total_box],
+							 :total_box_update => session[:total_box_update]}
+end
+
+post '/bills'  do
+	erb :bills, :locals => {:user_budget => session[:user_budget],
+							 :transportation => session[:transportation],
+							 :lodging => session[:lodging],
+							 :amenities => session[:amenities],
+							 :dining => session[:dining],
+							 :other => session[:other],
+							 :total_box => session[:total_box],
+							 :total_box_update => session[:total_box_update]}
+end
+
+
+
 get '/checklist' do
 	params[:todo] ||= []
 	session[:user_todo] ||= []

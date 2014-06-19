@@ -16,4 +16,9 @@ class Budget
 		remaining_budget = @totalbudget - @elements_total
 	end
 	
+	def bill_split
+		
+	end
+
+
 end

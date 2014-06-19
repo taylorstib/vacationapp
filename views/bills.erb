@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Split your bills</title>
+</head>
+	
+	<body>
+		<div>
+			 <form action="/bills" method="post">
+			 	<label> Total Budget </label> <input type="number" name="totalbudget" value=<%= session[:user_budget] %>>
+			 	<label>Transportation</label><input type="number" name="transportation" value=<%= session[:transportation] %>>
+				 	<label> Who paid for it? </label> <input type="text" name="transportation_user1">
+				 	<label> Who paid for it? </label> <input type="text" name="transportation_user2">
+			 	<label>Lodging</label><input type="number" name="lodging" value=<%= session[:lodging] %>>
+				 	<label> Who paid for it? </label> <input type="text" name="lodging_user1">
+				 	<label> Who paid for it? </label> <input type="text" name="lodging_user2">
+			 	<label>Amenities</label><input type="number" name="amenities" value=<%= session[:amenities] %>>
+				 	<label> Who paid for it? </label> <input type="text" name="amenities_user1">
+				 	<label> Who paid for it? </label> <input type="text" name="amenities_user2">
+			 	<label>Dining</label><input type="number" name="dining" value=<%= session[:dining] %>>
+				 	<label> Who paid for it? </label> <input type="text" name="dining_user1">
+				 	<label> Who paid for it? </label> <input type="text" name="dining_user2">
+			 	<label>Other costs (insurance, visa, vaccines, etc)</label><input type="number" name="other" value=<%= session[:other] %>>
+				 	<label> Who paid for it? </label> <input type="text" name="other_user1">
+				 	<label> Who paid for it? </label> <input type="text" name="other_user2">
+			 	<input type="submit" name="split" value="Split it!" id="btn">
+			 </form>
+		</div>
+	</body>
+</html>
