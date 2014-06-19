@@ -32,6 +32,8 @@ class Bills
 		@other_split = other_split
 	end
 
+	attr_reader :transportation, :transportation_split, :lodging, :lodging_split, :amenities, :amenities_split, :dining, :dining_split, :other, :other_split
+
 	def splitting
 		array_bills = [@transportation, @lodging, @amenities, @dining, @other]
 		array_split = [@transportation_split, @lodging_split, @amenities_split, @dining_split, @other_split]
@@ -41,6 +43,7 @@ class Bills
 		@expense_per_person = []
 
 		array_bills_split.each do |item|
+
 			result = item[0]/item[1]
 			@expense_per_person << result
 		end
