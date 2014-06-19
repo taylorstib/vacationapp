@@ -8,13 +8,13 @@
 	</head>
 	<body>
 		<div id="navbar">
-			<a href="/">Home</a> | <a href="budget">Budget</a> | <a href="#">To Do</a> | <a href="#">Amenities</a> | <a href="transportation.erb">Transportation</a> | <a href="lodging">Lodging</a>
+			<a href="/">Home</a> || <a href="budget">Budget</a> || <a href="#">To Do</a> || <a href="#">Amenities</a> || <a href="transportation.erb">Transportation</a> || <a href="lodging">Lodging</a>
 		</div>
 		<h1>We are here to help you plan your next vacation</h1>
 
 		<!-- Form for the destination and other trip info -->
-		<div class="pure-g">
-			<form action="/budget" method="post" class="pure-u-1-2">
+		<div>
+			<form action="/budget" method="post">
 				<fieldset class="theform">
 				<legend>Trip Info</legend>
 					<label>Origin</label><input type="text" name="origin">
@@ -27,12 +27,12 @@
 						<option value="cruise">Cruise</option>
 						<option value="Bus">Bus</option>
 					</select><br>
-					<label>How much can you spend on this vacation?</label><input type="number" name="budget" required>
+					<label>How much can you spend on this vacation?</label><input class="last" type="number" name="budget" step="25" required>
 					<input type="submit" value="Submit" action="button" id="btn">
 				</fieldset>
 			</form>
 		</div>
-		<div class="pure-u-1-2"></div>
+		<div></div>
 	</body>
 
 
