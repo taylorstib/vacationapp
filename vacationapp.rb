@@ -109,3 +109,8 @@ post '/checklist' do
 	session[:user_todo].push(new_todo)
 	erb :checklist, :locals => {:array_todo => array_todo, :user_todo => session[:user_todo]}
 end
+
+get '/print' do
+
+	erb :print
+end
