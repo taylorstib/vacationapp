@@ -20,11 +20,15 @@ post '/budget' do
 		session[:amenities] = params[:amenities].to_f
 		session[:dining] = params[:dining].to_f
 		session[:other] = params[:other].to_f
+
 		budget_items = Budget.new(session[:user_budget] , session[:transportation], session[:lodging], session[:amenities], session[:dining], session[:other]) 
 		session[:total_box_update] = budget_items.remaining.to_f
+
 	 else
 		params[:budget] ||= []
 		session[:user_budget] ||= []
+		session[:destination] = params[:destination]
+		session[:transportation_type] = params[:transportation_type]
 		session[:user_budget] = params[:budget].to_f
 		session[:total_box] = session[:user_budget].to_f
 	end
@@ -34,6 +38,7 @@ post '/budget' do
 							 :amenities => session[:amenities],
 							 :dining => session[:dining],
 							 :other => session[:other],
+							 :destination => session[:destination],
 							 :total_box => session[:total_box],
 							 :total_box_update => session[:total_box_update]}
 end
@@ -65,19 +70,6 @@ end
 
 post '/bills'  do
 
-	# session[:transportation_bill] = params[:transportation_bill].to_f
-	# session[:lodging_bill] = params[:lodging_bill].to_f
-	# session[:amenities_bill] = params[:amenities_bill].to_f
-	# session[:dining_bill] = params[:dining_bill].to_f
-	# session[:other_bill] = params[:other_bill].to_f
-
-	# session[:transportation_user1] = params[:transportation_user1].to_f
-	# session[:lodging_user1] = params[:lodging_user1].to_f
-	# session[:amenities_user1] = params[:amenities_user1].to_f
-	# session[:dining_user1] = params[:dining_user1].to_f
-	# session[:other_user1] = params[:other_user1].to_f
-
-	#split_result = Bills.new(session[:transportation_bill], session[:transportation_user1], session[:lodging_bill], session[:lodging_user1], session[:amenities_bill], session[:amenities_user1], session[:dining_bill], session[:dining_user1], session[:other_bill], session[:other_user1])
 	if 	params[:split_transportation] == "Split it!"
 		session[:result_transportation] = params[:transportation_bill].to_f/params[:transportation_user1].to_f
 		elsif
@@ -93,6 +85,7 @@ post '/bills'  do
 			params[:split_other] == "Split it!"
 			session[:result_other] = params[:other_bill].to_f/params[:other_user1].to_f
 		end
+
 
 	erb :bills, :locals => {:user_budget => session[:user_budget],
 							 :transportation => session[:transportation],
@@ -112,7 +105,8 @@ get '/checklist' do
 	params[:todo] ||= []
 	session[:user_todo] ||= []
 	array_todo = ['Take out the Trash before you leave.', 'Print boarding passes']
-	erb :checklist, :locals => {:array_todo => array_todo, :user_todo => session[:user_todo]}
+	erb :checklist, :locals => {:array_todo => array_todo,
+								:user_todo => session[:user_todo]}
 end
 
 
@@ -126,6 +120,8 @@ post '/checklist' do
 end
 
 get '/print' do
-
-	erb :print
+	dont_forget = ['Take out the Trash before you leave.', 'Print boarding passes']
+	erb :print, :locals => {:destination => session[:destination],
+							:transportation_type => session[:transportation_type],
+							:dont_forget => dont_forget}
 end

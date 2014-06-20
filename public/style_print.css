@@ -1,0 +1,8 @@
+span{
+	font-weight: bold;
+	font-size: 24px;
+}
+
+.todo_print li{
+	list-style-image: url(check.jpg);
+}
