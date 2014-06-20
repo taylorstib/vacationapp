@@ -1,6 +1,7 @@
 require 'sinatra'
 require 'sinatra/reloader'
 require_relative 'budget.rb'
+require 'pry'
 
 configure do
 	enable :sessions
@@ -39,8 +40,6 @@ end
 
 get '/budget' do
 	session ||= {}
-	# session[:totalbudget] = session[:user_budget]
-	# took out the params stuff
 	erb :budget, :locals => {:user_budget => session[:user_budget],
 							 :transportation => session[:transportation],
 							 :lodging => session[:lodging],
@@ -61,33 +60,39 @@ get '/bills' do
 							 :dining => session[:dining],
 							 :other => session[:other],
 							 :total_box => session[:total_box],
-							 # :transportation_bill => session[:transportation_bill],
-							 # :lodging_bill => session[:lodging_bill]
-							 # :amenities_bill => session[:amenities_bill]
-							 # :other_bill => session[:other_bill]
-							 # :transportation_user => session[:transportation_user1]
-							 # :lodging_user1 => session[:lodging_user1]
-							 # :amenities_user1 => session[:amenities_user1]
-							 # :other_user1 => session[:other_user1]
 							 :result_split_user => session[:result_split_user]}
 end
 
 post '/bills'  do
 
-	session[:transportation_bill] = params[:transportation_bill].to_f
-	session[:lodging_bill] = params[:lodging_bill].to_f
-	session[:amenities_bill] = params[:amenities_bill].to_f
-	session[:dining_bill] = params[:dining_bill].to_f
-	session[:other_bill] = params[:other_bill].to_f
+	# session[:transportation_bill] = params[:transportation_bill].to_f
+	# session[:lodging_bill] = params[:lodging_bill].to_f
+	# session[:amenities_bill] = params[:amenities_bill].to_f
+	# session[:dining_bill] = params[:dining_bill].to_f
+	# session[:other_bill] = params[:other_bill].to_f
 
-	session[:transportation_user1] = params[:transportation_user1].to_f
-	session[:lodging_user1] = params[:lodging_user1].to_f
-	session[:amenities_user1] = params[:amenities_user1].to_f
-	session[:dining_user1] = params[:dining_user1].to_f
-	session[:other_user1] = params[:other_user1].to_f
+	# session[:transportation_user1] = params[:transportation_user1].to_f
+	# session[:lodging_user1] = params[:lodging_user1].to_f
+	# session[:amenities_user1] = params[:amenities_user1].to_f
+	# session[:dining_user1] = params[:dining_user1].to_f
+	# session[:other_user1] = params[:other_user1].to_f
 
-	split_result = Bills.new(session[:transportation_bill], session[:transportation_user1], session[:lodging_bill], session[:lodging_user1], session[:amenities_bill], session[:amenities_user1], session[:dining_bill], session[:dining_user1], session[:other_bill], session[:other_user1])
-	session[:result_split_user] = split_result.splitting.to_f
+	#split_result = Bills.new(session[:transportation_bill], session[:transportation_user1], session[:lodging_bill], session[:lodging_user1], session[:amenities_bill], session[:amenities_user1], session[:dining_bill], session[:dining_user1], session[:other_bill], session[:other_user1])
+	if 	params[:split_transportation] == "Split it!"
+		session[:result_transportation] = params[:transportation_bill].to_f/params[:transportation_user1].to_f
+		elsif
+			params[:split_lodging] == "Split it!"
+			session[:result_lodging] = params[:lodging_bill].to_f/params[:lodging_user1].to_f
+		elsif
+			params[:split_amenities] == "Split it!"
+			session[:result_amenities] = params[:amenities_bill].to_f/params[:amenities_user1].to_f
+		elsif
+			params[:split_dining] == "Split it!"
+			session[:result_dining] = params[:dining_bill].to_f/params[:dining_user1].to_f
+		elsif
+			params[:split_other] == "Split it!"
+			session[:result_other] = params[:other_bill].to_f/params[:other_user1].to_f
+		end
 
 	erb :bills, :locals => {:user_budget => session[:user_budget],
 							 :transportation => session[:transportation],
@@ -96,10 +101,12 @@ post '/bills'  do
 							 :dining => session[:dining],
 							 :other => session[:other],
 							 :total_box => session[:total_box],
-							 :result_split_user => session[:result_split_user]}
+							 :result_transportation => session[:result_transportation],
+							 :result_lodging => session[:result_lodging],
+							 :result_amenities => session[:result_amenities],
+							 :result_dining => session[:result_dining],
+							 :result_other => session[:result_other]}
 end
-
-
 
 get '/checklist' do
 	params[:todo] ||= []

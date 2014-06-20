@@ -7,37 +7,48 @@
 	
 	<body>
 		<div>
-			 <form action="/bills" method="post">
 			 	<label> Total Budget </label> <input type="number" name="totalbudget" value=<%= session[:user_budget] %>>
+			 	<br>
 
+			 	<form action="/bills" method="post">
 			 	<label>Transportation</label><input type="number" name="transportation_bill" value=<%= session[:transportation] %>>
 				 	<label>Split by how many? </label> <input type="number" name="transportation_user1">
+				<input type="submit" name="split_transportation" value="Split it!" id="btn">
+				</form>
+				<div> Transportation split: <%= session[:result_transportation]%> </div>
+				<br>
 
-				 	<!-- <label> Who paid for it? </label> <input type="text" name="transportation_user2"> -->
-
+				<form action="/bills" method="post">
 			 	<label>Lodging</label><input type="number" name="lodging_bill" value=<%= session[:lodging] %>>
 				 	<label>Split by how many?</label> <input type="number" name="lodging_user1">
+				<input type="submit" name="split_lodging" value="Split it!" id="btn">
+				</form>
+				<div> Lodging split: <%= session[:result_lodging]%> </div>
+				<br>
 
-				 	<!-- <label> Who paid for it? </label> <input type="text" name="lodging_user2"> -->
-
+				<form action="/bills" method="post">
 			 	<label>Amenities</label><input type="number" name="amenities_bill" value=<%= session[:amenities] %>>
 				 	<label>Split by how many?</label> <input type="number" name="amenities_user1">
+				<input type="submit" name="split_amenities" value="Split it!" id="btn">
+				</form>
+				<div> Amenities split: <%= session[:result_amenities]%> </div>
+				<br>
 
-				 	<!-- <label> Who paid for it? </label> <input type="text" name="amenities_user2"> -->
-
+				<form action="/bills" method="post">
 			 	<label>Dining</label><input type="number" name="dining_bill" value=<%= session[:dining] %>>
 				 	<label>Split by how many?</label> <input type="number" name="dining_user1">
+				 <input type="submit" name="split_dining" value="Split it!" id="btn">
+				 </form>
+				 	<div> Dining split: <%= session[:result_dining]%> </div>
+				 <br>
 
-				 	<!-- <label> Who paid for it? </label> <input type="text" name="dining_user2"> -->
-
+				<form action="/bills" method="post">
 			 	<label>Other costs (insurance, visa, vaccines, etc)</label><input type="number" name="other_bill" value=<%= session[:other] %>>
 				 	<label>Split by how many?</label> <input type="number" name="other_user1">
-
-				 	<!-- <label> Who paid for it? </label> <input type="text" name="other_user2"> -->
-
-			 	<input type="submit" name="split" value="Split it!" id="btn">
-			 </form>
-			 <div> <%= session[:result_split_user]  %>  </div>
+				<input type="submit" name="split_other" value="Split it!" id="btn">
+				</form>
+				<div> Other costs split: <%= session[:result_other]%> </div>
+				<br>
 		</div>
 	</body>
 </html>
