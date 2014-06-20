@@ -76,10 +76,11 @@ post '/bills'  do
 	session[:lodging_user1] = params[:lodging_user1].to_f
 	session[:amenities_user1] = params[:amenities_user1].to_f
 	session[:dining_user1] = params[:dining_user1].to_f
-	session[:other_user1] = session[:other_user1].to_f
+	session[:other_user1] = params[:other_user1].to_f
 
 	split_result = Bills.new(session[:transportation_bill] , session[:transportation_user1], session[:lodging_bill], session[:lodging_user1], session[:amenities_bill], session[:amenities_user1], session[:dining_bill], session[:dining_user1], session[:other_bill], session[:other_user1])
 	session[:result_split_user] = split_result.splitting.to_f
+	#session[:result_split_user] = 
 
 	erb :bills, :locals => {:user_budget => session[:user_budget],
 							 :transportation => session[:transportation],

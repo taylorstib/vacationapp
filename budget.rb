@@ -42,6 +42,8 @@ class Bills
 
 		@expense_per_person = []
 
+		return array_bills_split
+
 		array_bills_split.each do |item|
 
 			result = item[0]/item[1]
