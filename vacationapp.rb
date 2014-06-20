@@ -102,7 +102,8 @@ get '/checklist' do
 	params[:todo] ||= []
 	session[:user_todo] ||= []
 	array_todo = ['Take out the Trash before you leave.', 'Print boarding passes']
-	erb :checklist, :locals => {:array_todo => array_todo, :user_todo => session[:user_todo]}
+	erb :checklist, :locals => {:array_todo => array_todo,
+								:user_todo => session[:user_todo]}
 end
 
 
@@ -116,6 +117,8 @@ post '/checklist' do
 end
 
 get '/print' do
+	dont_forget = ['Take out the Trash before you leave.', 'Print boarding passes']
 	erb :print, :locals => {:destination => session[:destination],
-							:transportation_type => session[:transportation_type]}
+							:transportation_type => session[:transportation_type],
+							:dont_forget => dont_forget}
 end

@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<link rel="stylesheet" type="text/css" href="style.css">
+		<link rel="stylesheet" type="text/css" href="style_print.css">
 		<title>Print this page!</title>
 	</head>
 	
@@ -14,6 +14,23 @@
 		<p>My trip to: <span><%= session[:destination] %></span></p>
 		<p>I am getting there by: <span><%= session[:transportation_type] %></span></p>
 
+		<div class="todo_print">
+			<h3>Don't Forget!</h3>
+			<ul>
+				<% dont_forget.each do |item| %>
+					<li><%= item %></li>
+				<% end %>
+			</ul>
+		</div>
+
+		<div class="todo_print">
+			<h3>My Tasks to do before the trip:</h3>
+			<ul>
+				<% session[:user_todo].each do |item| %>
+					<li><%= item %></li>
+				<% end %>
+			</ul>
+		</div>
 	</body>
 
 
