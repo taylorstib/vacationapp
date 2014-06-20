@@ -15,20 +15,19 @@ class Budget
 	def remaining
 		remaining_budget = @totalbudget - @elements_total
 	end
-	
 end
 
 class Bills
-	def initialize(transportation, transportation_split, lodging, lodging_split, amenities, amenities_split, dining, dining_split, other, other_split)
-		@transportation = transportation
+	def initialize(transportation_bill, transportation_split, lodging_bill, lodging_split, amenities_bill, amenities_split, dining_bill, dining_split, other_bill, other_split)
+		@transportation = transportation_bill
 		@transportation_split = transportation_split
-		@lodging = lodging
+		@lodging = lodging_bill
 		@lodging_split = lodging_split
-		@amenities = amenities
+		@amenities = amenities_bill
 		@amenities_split = amenities_split
-		@dining = dining
+		@dining = dining_bill
 		@dining_split = dining_split
-		@other = other
+		@other = other_bill
 		@other_split = other_split
 	end
 
