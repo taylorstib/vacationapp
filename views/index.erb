@@ -8,14 +8,13 @@
 	</head>
 	<body>
 		<div id="navbar">
-			<a href="/">Home</a> | <a href="budget">Budget</a> | <a href="checklist">To Do</a> | <a href="amenities">Amenities</a> | <a href="transportation">Transportation</a> | <a href="lodging">Lodging</a> | <a href="print">Print-out Page</a>
+			<a href="/">Home</a> | <a href="budget">Budget</a> | <a href="bills">Bills</a> | <a href="checklist">To Do</a> | <a href="amenities">Amenities</a> | <a href="transportation">Transportation</a> | <a href="lodging">Lodging</a> | <a href="print">Print</a>
 		</div>
 		<h1>We are here to help you plan your next vacation</h1>
 
 		<!-- Form for the destination and other trip info -->
 		<div class="pure-g">
 			<form action="/budget" method="post" class="pure-u-1-2">
-				<fieldset class="theform">
 				<legend>Trip Info</legend>
 					<label>Origin</label><input type="text" name="origin">
 					<label>Destination</label><input type="text" name="destination">
@@ -29,7 +28,6 @@
 					</select><br>
 					<label>How much can you spend on this vacation?</label><input type="number" name="budget" required>
 					<input type="submit" value="Submit" action="button" id="btn">
-				</fieldset>
 			</form>
 		</div>
 		<div class="pure-u-1-2"></div>
