@@ -24,16 +24,8 @@
         	</ul>
     	</div>
 	</div>
-		<!-- Form for the destination and other trip info -->
-	<!-- 	<div>
-			<form action="/" method="post">
-					<label>Name</label><input type="text" name="name">
-					<input type="submit" value="Submit" action="button" id="btn">
-			</form>
-		</div> -->
-			
-
-
+	<br>
+	<br>
 			<ul>
 				<% array_todo.each do |item| %>
 					<li><%= item %></li>
@@ -45,7 +37,7 @@
 			</ul>
 		<div>
 			<form action="/checklist" method="post">
-					<label>To do item</label><input type="text" name="todo">
+					<label>To do item</label><input type="text" name="todo" autofocus>
 					<input type="submit" value="Submit" action="button" id="btn">
 			</form>
 		</div>
