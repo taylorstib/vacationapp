@@ -3,7 +3,9 @@ background-color: grey;
 }
 h1{
 	color: white;
+	padding: 25px;
 }
+
 
 .theform label{
 	font-size: 24px;

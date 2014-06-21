@@ -125,3 +125,11 @@ get '/print' do
 							:transportation_type => session[:transportation_type],
 							:dont_forget => dont_forget}
 end
+
+get '/transportation' do
+	erb :transportation
+end
+
+get '/lodging' do
+	erb :lodging
+end
