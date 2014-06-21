@@ -2,23 +2,50 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" type="text/css" href="style.css">
-		<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+		<link rel="stylesheet" type="text/css" href="style_index.css">
+		<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css"> 
+		<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/base-min.css">
+		<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/forms-min.css">
+		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
 		<title>Vacation App</title>
 	</head>
 	<body>
-		<div id="navbar">
-			<a href="/">Home</a> | <a href="budget">Budget</a> | <a href="checklist">To Do</a> | <a href="amenities">Amenities</a> | <a href="transportation">Transportation</a> | <a href="lodging">Lodging</a> | <a href="print">Print-out Page</a>
-		</div>
+
+	<div class="navbar">
+    	<div class="home-menu pure-menu pure-menu-open pure-menu-horizontal pure-menu-fixed">
+        	<ul>
+            	<li class="pure-menu-selected"><a href="/">Home</a></li>
+            	<li><a href="checklist">To Do</a></li>
+            	<li><a href="budget">Budget</a></li>
+            	<li><a href="bills">Splitting Bills</a></li>
+            	<li><a href="transportation">Transportation</a></li>
+            	<li><a href="lodging">Lodging</a></li>
+            	<li><a href="print">Print-out Page</a></li>
+        	</ul>
+    	</div>
+	</div>
+
+
 		<h1>We are here to help you plan your next vacation</h1>
 
 		<!-- Form for the destination and other trip info -->
+		<div class="theform">
 		<div class="pure-g">
-			<form action="/budget" method="post" class="pure-u-1-2">
-				<fieldset class="theform">
-				<legend>Trip Info</legend>
+			<form action="/budget" method="post" class="pure-form pure-form-stacked">
+				<fieldset>
+				 <div class="pure-g-r">
+
+				 <div class="pure-u-1-1">
+				 <i class="fa fa-home"></i>
 					<label>Origin</label><input type="text" name="origin">
+				 </div>
+
+				 <div class="pure-u-1-1">
 					<label>Destination</label><input type="text" name="destination">
+				 </div>
+
+				 <div class="pure-u-1-1">
+				 <i class="fa fa-paper-plane-o"></i>
 					<label>Transportation</label><select name="transportation_type">
 						<option value="-" selected>-</option>
 						<option value="Flight">Flight</option>
@@ -26,14 +53,19 @@
 						<option value="Car">Car</option>
 						<option value="Cruise">Cruise</option>
 						<option value="Bus">Bus</option>
-					</select><br>
+					</select>
+				 </div>
+
+				 <div class="pure-u-1-1">
 					<label>How much can you spend on this vacation?</label><input type="number" name="budget" required>
 					<input type="submit" value="Submit" action="button" id="btn">
+				 </div>
+
+				 </div>
 				</fieldset>
 			</form>
 		</div>
-		<div class="pure-u-1-2"></div>
+		</div>
+
 	</body>
-
-
 </html>

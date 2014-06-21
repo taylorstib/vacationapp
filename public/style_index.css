@@ -1,0 +1,39 @@
+body{
+background-color: grey;
+}
+
+
+h1{
+	padding: 25px;
+	color: white;
+}
+
+.theform{
+	padding-left: 35px;
+	font-size: 24px;
+	color:white;
+}
+
+/*.theform label{
+	font-size: 24px;
+	color:white;
+}*/
+
+/*.theform input,
+.theform label,
+.theform select{
+	margin: 10px;
+	display: block;
+}*/
+
+/*.theform input {
+	width: 200px;
+	height: 30px;
+}*/
+
+#btn{
+	width: 100px;
+	height: 35px;
+	border-radius: 5px;
+}
+
