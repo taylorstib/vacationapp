@@ -84,7 +84,7 @@ post '/bills'  do
 		elsif
 			params[:split_other] == "Split it!"
 			session[:result_other] = (params[:other_bill].to_f/params[:other_user1].to_f).round(2)
-		end
+	end
 
 
 	erb :bills, :locals => {:user_budget => session[:user_budget],
