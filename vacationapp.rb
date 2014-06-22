@@ -71,19 +71,19 @@ end
 post '/bills'  do
 
 	if 	params[:split_transportation] == "Split it!"
-		session[:result_transportation] = params[:transportation_bill].to_f/params[:transportation_user1].to_f
+		session[:result_transportation] = (params[:transportation_bill].to_f/params[:transportation_user1].to_f).round(2)
 		elsif
 			params[:split_lodging] == "Split it!"
-			session[:result_lodging] = params[:lodging_bill].to_f/params[:lodging_user1].to_f
+			session[:result_lodging] = (params[:lodging_bill].to_f/params[:lodging_user1].to_f).round(2)
 		elsif
 			params[:split_amenities] == "Split it!"
-			session[:result_amenities] = params[:amenities_bill].to_f/params[:amenities_user1].to_f
+			session[:result_amenities] = (params[:amenities_bill].to_f/params[:amenities_user1].to_f).round(2)
 		elsif
 			params[:split_dining] == "Split it!"
-			session[:result_dining] = params[:dining_bill].to_f/params[:dining_user1].to_f
+			session[:result_dining] = (params[:dining_bill].to_f/params[:dining_user1].to_f).round(2)
 		elsif
 			params[:split_other] == "Split it!"
-			session[:result_other] = params[:other_bill].to_f/params[:other_user1].to_f
+			session[:result_other] = (params[:other_bill].to_f/params[:other_user1].to_f).round(2)
 		end
 
 
