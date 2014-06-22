@@ -60,13 +60,17 @@ label{
 .links a{
 	text-decoration: none;
 	color: red;
-	border: 1px black solid;
 	display: block;
 	padding: 25px 0;
+	text-indent: -9999px;
 }
 
 .links li{
 	list-style-type: none;
+}
+.transportation h3,
+.transportation a{
+	letter-spacing: normal;
 }
 
 /*Here are the background images for airline logos*/
@@ -95,7 +99,22 @@ label{
 	background-position: center;
 }
 #emirates{
-	background-image: url(images/emirates.jpg);	
+	background-image: url(images/emirates.png);	
 	background-position: center;
 }
-
+#qantas{
+	background-image: url(images/qantas.jpg);	
+	background-position: center;
+}
+#lufthansa{
+	background-image: url(images/lufthansa.jpg);	
+	background-position: center;
+}
+#ryan{
+	background-image: url(images/ryanair.jpg);	
+	background-position: center;
+}
+#easy{
+	background-image: url(images/easyjet.png);	
+	background-position: center;
+}
