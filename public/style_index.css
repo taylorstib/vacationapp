@@ -56,19 +56,46 @@ label{
 	display: inline-block;
 	width: 138px;
 	height: 70px;
-	border: magenta solid 1px;
 }
 .links a{
 	text-decoration: none;
-	color: yellow;
+	color: red;
+	border: 1px black solid;
+	display: block;
+	padding: 25px 0;
 }
 
-#swa{
-	background-image: url(images/swa.jpg);
-}
 .links li{
 	list-style-type: none;
 }
 
-
+/*Here are the background images for airline logos*/
+#swa{
+	background-image: url(images/swa.jpg);
+	background-position: center;
+}
+#american{
+	background-image: url(images/american.jpg);	
+	background-position: center;
+}
+#delta{
+	background-image: url(images/delta.jpg);	
+	background-position: center;
+}
+#united{
+	background-image: url(images/united.png);	
+	background-position: center;
+}
+#british{
+	background-image: url(images/british.jpg);	
+	background-position: center;
+}
+#airfrance{
+	background-image: url(images/airfrance.jpg);	
+	background-position: center;
+}
+#emirates{
+	background-image: url(images/emirates.jpg);	
+	background-position: center;
+}
 
