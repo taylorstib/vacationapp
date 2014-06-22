@@ -1,5 +1,5 @@
 body{
-background-image: url("grey_wash_wall.png");
+	background-image: url("grey_wash_wall.png");
 }
 
 
@@ -52,6 +52,23 @@ label{
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 
+.links{
+	display: inline-block;
+	width: 138px;
+	height: 70px;
+	border: magenta solid 1px;
+}
+.links a{
+	text-decoration: none;
+	color: yellow;
+}
+
+#swa{
+	background-image: url(images/swa.jpg);
+}
+.links li{
+	list-style-type: none;
+}
 
 
 
