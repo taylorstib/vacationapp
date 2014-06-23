@@ -67,6 +67,7 @@ label{
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 
+/*Transportation and Lodging link styling*/
 .links{
 	display: inline-block;
 	width: 138px;
@@ -74,19 +75,46 @@ label{
 	border-radius: 5px;
 	border: 1px solid #4C1B1B;
 }
+.linkslodging{
+	display: inline-block;
+	width: 165px;
+	height: 90px;
+	border-radius: 6px;
+	border: 1px solid #4C1B1B;	
+}
+.linkslodging{
+	letter-spacing: normal;
+	background-color: black;
+
+}
+.linkslodging a{
+	text-decoration: none;
+	text-align: center;
+	color: white;
+	display: block;
+	padding: 31px 0;
+	font-size: 24px;
+}
+.linkslodging a:hover{
+	color:black;
+	background-color: beige;
+	border-radius: 6px;
+}
 .links a{
 	text-decoration: none;
-	color: red;
+	color: white;
 	display: block;
 	padding: 25px 0;
 	text-indent: -9999px;
 }
 
-.links li{
+.links li,
+.linkslodging li{
 	list-style-type: none;
 	margin: 0 0;
 }
-.transportation h3{
+.transportation h2,
+.lodging h2{
 	padding: 0 12px;
 	margin-left: 10%;
 	margin-right: 13%;
