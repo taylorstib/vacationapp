@@ -1,0 +1,224 @@
+/*
+Color scheme
+https://kuler.adobe.com/Johnny-Cash-Tribute-color-theme-718425/
+
+peach color:; #f2ca80
+red; #b9121b
+dark red: #4C1B1B;
+*/
+
+body{
+	background-image: url("grey_wash_wall.png");
+}
+.head{
+	height: 200px;
+	position: relative;
+	width: 450px;
+	margin-left: auto;
+	margin-right: auto;
+}
+h1{
+	padding-top: 70px;
+	color: #f2ca80;
+	text-align: center;
+}
+
+.budget{
+	text-align: center;
+	font-size: 24px;
+	background-color: beige;
+	border: 6px solid #949599;
+  	height: 50px;
+  	margin: auto;
+  	padding: 20px;
+  	width: 200px;
+
+}
+
+.bill_split{
+	font-size: 24px;
+}
+
+.theform{
+	padding-left: 35px;
+	font-size: 24px;
+	color:white;
+}
+
+#button_budget{
+    margin: 40px;
+
+}
+
+label{
+	padding: 4px;
+}
+
+.theform_split{
+	padding-top: 5px;
+	padding-left: 30px;
+	font-size: 18px;
+	color:white;
+}
+
+.button-secondary {
+    color: white;
+    border-radius: 2px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+/*Checklist Styling*/
+.todo{
+	list-style-image: url(check.jpg);
+	font-size: 24px;
+	margin: 6px 0 6px 10px;
+	padding: 5px;
+	border:1px solid red;
+}
+
+
+/*Transportation and Lodging link styling*/
+.links{
+	display: inline-block;
+	width: 138px;
+	height: 70px;
+	border-radius: 5px;
+	border: 1px solid #4C1B1B;
+}
+.linkslodging{
+	display: inline-block;
+	width: 165px;
+	height: 90px;
+	border-radius: 6px;
+	border: 1px solid #4C1B1B;	
+}
+.linkslodging{
+	letter-spacing: normal;
+	background-color: black;
+
+}
+.linkslodging a{
+	text-decoration: none;
+	text-align: center;
+	color: white;
+	display: block;
+	padding: 31px 0;
+	font-size: 24px;
+}
+.linkslodging a:hover{
+	color:black;
+	background-color: beige;
+	border-radius: 6px;
+}
+.links a{
+	text-decoration: none;
+	color: white;
+	display: block;
+	padding: 25px 0;
+	text-indent: -9999px;
+}
+
+.links li,
+.linkslodging li{
+	list-style-type: none;
+	margin: 0 0;
+}
+.transportation h2,
+.lodging h2{
+	padding: 0 12px;
+	margin-left: 10%;
+	margin-right: 13%;
+	letter-spacing: normal;
+	text-align: center;
+	background-color: #4C1B1B;
+	color: white;
+	border-radius: 10px;
+}
+
+/*Here are the background images for airline logos*/
+#swa{
+	background-image: url(images/swa.jpg);
+	background-position: center;
+}
+#american{
+	background-image: url(images/american.jpg);	
+	background-position: center;
+}
+#delta{
+	background-image: url(images/delta.jpg);	
+	background-position: center;
+}
+#united{
+	background-image: url(images/united.png);	
+	background-position: center;
+}
+#british{
+	background-image: url(images/british.jpg);	
+	background-position: center;
+}
+#airfrance{
+	background-image: url(images/airfrance.jpg);	
+	background-position: center;
+}
+#emirates{
+	background-image: url(images/emirates.png);	
+	background-position: center;
+}
+#qantas{
+	background-image: url(images/qantas.jpg);	
+	background-position: center;
+}
+#lufthansa{
+	background-image: url(images/lufthansa.jpg);	
+	background-position: center;
+}
+#ryan{
+	background-image: url(images/ryanair.jpg);	
+	background-position: center;
+}
+#easy{
+	background-image: url(images/easyjet.png);	
+	background-position: center;
+}
+
+/*Cruise lines*/
+#carnival{
+	background-image: url(images/carnival.jpg);	
+	background-position: center;
+}
+#disney{
+	background-image: url(images/disney.jpg);	
+	background-position: center;
+}
+#acl{
+	background-image: url(images/acl.jpg);	
+	background-position: center;
+}
+
+/*Railways*/
+#amtrak{
+	background-image: url(images/amtrak.jpg);	
+	background-position: center;
+}
+#raileurope{
+	background-image: url(images/raileurope.jpg);	
+	background-position: center;
+}
+#canadian{
+	background-image: url(images/canadian.jpg);	
+	background-position: center;
+}
+
+/*Bus lines*/
+#coach{
+	background-image: url(images/coach.jpg);	
+	background-position: center;
+}
+#greyhound{
+	background-image: url(images/greyhound.png);	
+	background-position: center;
+}
+#megabus{
+	background-image: url(images/megabus.jpg);	
+	background-position: center;
+}

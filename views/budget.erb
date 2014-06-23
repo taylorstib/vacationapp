@@ -2,33 +2,84 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" type="text/css" href="style.css">
-		<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
-		<title>Vacation App</title>
+		<link rel="stylesheet" type="text/css" href="style_index.css">
+		<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css"> 
+		<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/base-min.css">
+		<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/forms-min.css">
+		<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css">
+		<title>Budget</title>
 	</head>
 	<body>
-		<div id="navbar">
-			<a href="/">Home</a> | <a href="budget">Budget</a> | <a href="bills">Bills</a> | <a href="checklist">To Do</a> | <a href="amenities">Amenities</a> | <a href="transportation">Transportation</a> | <a href="lodging">Lodging</a> | <a href="print">Print</a>
-		</div>
-		<h1>We are here to help you plan your next vacation</h1>
-		<div>
-			 <form action="/budget" method="post">
-			 	<label> Total Budget </label> <input type="number" name="totalbudget" value=<%= user_budget %> >
-			 	<label>Transportation</label><input type="number" name="transportation" value="0">
-			 	<label>Lodging</label><input type="number" name="lodging" value="0">
-			 	<label>Amenities</label><input type="number" name="amenities" value="0">
-			 	<label>Dining</label><input type="number" name="dining" value="0">
-			 	<label>Other costs (insurance, visa, vaccines, etc)</label><input type="number" name="other" value="0">
-			 	<input type="submit" name="action" value="Calculate" id="btn">
-			 </form>
-		</div>
-		<div><%= total_box %></div>
-		<div><%= total_box_update %></div>
-	
-		
 
+
+	<div class="navbar">
+    	<div class="home-menu pure-menu pure-menu-open pure-menu-horizontal pure-menu-fixed">
+        	<ul>
+            	<li class="pure-menu-selected"><a href="/">Home</a></li>
+            	<li><a href="checklist">To Do</a></li>
+            	<li><a href="budget">Budget</a></li>
+            	<li><a href="bills">Splitting Bills</a></li>
+            	<li><a href="transportation">Transportation</a></li>
+            	<li><a href="lodging">Lodging</a></li>
+            	<li><a href="print">Print-out Page</a></li>
+        	</ul>
+    	</div>
+	</div>
+
+		<h1>We Are Here To Help You Plan Your Budget</h1>
+		
+		<div class="theform">
+		<div class="pure-g">
+			
+			 <form action="/budget" method="post" class="pure-form pure-form-stacked">
+			 	<fieldset>
+			 	<div class="pure-g">
+			 	
+			 	<div class="pure-u-1-1">
+			 	<label> Total Budget </label> <input type="number" name="totalbudget" value=<%= user_budget %> >
+			 	</div>
+
+			 	<div class="pure-u-1 pure-u-md-1-3">
+			 	<label>Transportation</label><input type="number" name="transportation">
+			 	</div>
+
+			 	<div class="pure-u-1 pure-u-md-1-3">
+			 	<label>Lodging</label><input type="number" name="lodging">
+			 	</div>
+
+			 	<div class="pure-u-1 pure-u-md-1-3">
+			 	<label>Amenities</label><input type="number" name="amenities">
+			 	</div>
+
+			 	<div class="pure-u-1 pure-u-md-1-3">
+			 	<label>Dining</label><input type="number" name="dining">
+			 	</div>
+
+			 	<div class="pure-u-1 pure-u-md-1-3">
+			 	<label>Other costs</label><input type="number" name="other">
+			 	</div>
+			 	<div class="pure-u-1 pure-u-md-1-3">
+			 	<!-- <input id="button_budget" class="pure-button pure-button-primary" type="submit" name="action" value="Calculate"> -->
+			 		<button id="button_budget" class="pure-button pure-button-primary">
+					Calculate
+					<i class="fa fa-gears"></i>
+					</button>
+			 	</div>
+
+			 	</div>
+			 	</fieldset>
+			 </form>
+
+		</div>
+		</div>
+
+
+	<!-- 	<div><%= total_box %></div> -->
+		<div class="budget">
+		<i class="fa fa-money"> </i> Money left <br>
+		 <%= total_box_update %>
+		</div>
 
 	</body>
-
-
 </html>

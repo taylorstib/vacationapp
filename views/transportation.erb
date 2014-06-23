@@ -1,49 +1,82 @@
 <html>
 	<head>
-		<title>Vacation App</title>
-		<link rel="stylesheet" type="text/css" href="style.css">
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" type="text/css" href="style_index.css">
+		<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css"> 
+		<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/base-min.css">
+		<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/forms-min.css">
+		<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+		<title>Transportation</title>
 	</head>
 	<body>
-		<div id="navbar">
-			<a href="/">Home</a> | <a href="budget">Budget</a> | <a href="bills">Bills</a> | <a href="checklist">To Do</a> | <a href="amenities">Amenities</a> | <a href="transportation">Transportation</a> | <a href="lodging">Lodging</a> | <a href="print">Print</a>
+
+
+	<div class="navbar">
+    	<div class="home-menu pure-menu pure-menu-open pure-menu-horizontal pure-menu-fixed">
+        	<ul>
+            	<li class="pure-menu-selected"><a href="/">Home</a></li>
+            	<li><a href="checklist">To Do</a></li>
+            	<li><a href="budget">Budget</a></li>
+            	<li><a href="bills">Splitting Bills</a></li>
+            	<li><a href="transportation">Transportation</a></li>
+            	<li><a href="lodging">Lodging</a></li>
+            	<li><a href="print">Print-out Page</a></li>
+        	</ul>
+    	</div>
+	</div><br><br><br>
+
+	<div class="head"><h1>Plan Your Trip From Origin to Destination</h1></div><br>
+
+		<div class="transportation pure-g" id="flights">
+			<div class="pure-u-lg-2-3 pure-u-md-1-2 pure-u-sm-1-1">
+				<h2>Main Airlines</h2>
+				<ul>
+	      			<div class="links" id="american"><li><a href="http://www.americanairlines.com">American Airlines</a></li></div>
+	      			<div class="links" id="delta"><li><a href="http://www.deltaairlines.com">Delta Airlines</a></li></div>
+	      			<div class="links" id="united"><li><a href="http://www.unitedairlines.com">United Airlines</a></li></div>
+	      			<div class="links" id="british"><li><a href="http://www.britishairways.com">British Airways</a></li></div>
+	      			<div class="links" id="airfrance"><li><a href="http://www.airfrance.us">Air France</a></li></div>
+	      			<div class="links" id="emirates"><li><a href="http://www.emirates.com/us">Emirates</a></li></div>
+	      			<div class="links" id="qantas"><li><a href="http://www.qantas.com/us">Qantas</a></li></div>
+	      			<div class="links" id="lufthansa"><li><a href="http://www.lufthansa.com">Lufthansa</a></li></div>
+	   			</ul>
+			</div><div class="pure-u-lg-1-3 pure-u-md-1-2 pure-u-1-1">
+	   			<h2>Budget Airlines</h2>
+	   			<ul>
+	      			<div class="links" id="swa"><li><a href="http://www.southwest.com">Southwest Airlines</a></li></div>
+	      			<div class="links" id="ryan"><li><a href="http://www.ryanair.com">Ryanair</a></li></div>
+	      			<div class="links" id="easy"><li><a href="http://www.easyjet.com">Easy Jet</a></li></div>
+	   			</ul>
+			</div>
 		</div>
-		<h1>We are here to help you plan your next vacation</h1>
 
-		<div class="transportation" id="flights">
-				<h3> Main Airlines </h3>
-			<ul>
-      			<li><a href="www.americanairlines.com">American Airlines</a></li>
-      			<li><a href="www.deltaairlines.com">Delta Airlines</a></li>
-      			<li><a href="www.unitedairlines.com">United Airlines</a></li>
-   			</ul>
-		</div>
+		<div class="pure-g">
+			<div class="transportation pure-u-lg-1-3" id="train">
+				<h2>Trains & Railroads</h2>
+				<ul>
+	      			<div class="links" id="amtrak"><li><a href="http://www.amtrak.com">Amtrak</a></li></div>
+	      			<div class="links" id="raileurope"><li><a href="#">RailEurope</a></li></div>
+	      			<div class="links" id="canadian"><li><a href="http://www.cn.ca/">Canadian</a></li></div>
+	   			</ul>
+			</div><div class="transportation pure-u-lg-1-3" id="cruise">
+				<h2>Cruises</h2>
+				<ul>
+	      			<div class="links" id="carnival"><li><a href="http://www.carnival.com">Carnival</a></li></div>
+	      			<div class="links" id="disney"><li><a href="http://disneycruise.disney.go.com/">DisneyCruise</a></li></div>
+	      			<div class="links" id="acl"><li><a href="http://www.americancruiselines.com/">American Cruise Lines</a></li></div>
+	   			</ul>
+			</div>
 
-		<div class="transportation" id="train">
-				<h3> Trains & Railroads </h3>
-			<ul>
-      			<li><a href="www.amtrak.com">Amtrak</a></li>
-      			<li><a href="#">RailEurope</a></li>
-      			<li><a href="http://www.cn.ca/">Canada</a></li>
-   			</ul>
-		</div>
-
-		<div class="transportation" id="cruise">
-				<h3> Cruises </h3>
-			<ul>
-      			<li><a href="www.carnival.com">Carnival</a></li>
-      			<li><a href="http://disneycruise.disney.go.com/">DisneyCruise</a></li>
-      			<li><a href="http://www.americancruiselines.com/">American Cruise Lines</a></li>
-   			</ul>
-		</div>
-
-		<div class="transportation" id="bus">
-				<h3> Buses </h3>
-			<ul>
-      			<li><a href="http://www.coachusa.com/">Coach USA</a></li>
-      			<li><a href="https://www.greyhound.com/">GreyHound</a></li>
-      			<li><a href="https://us.megabus.com/">Megabus</a></li>
-   			</ul>
-
+			<div class="transportation pure-u-lg-1-3" id="bus">
+					<h2>Buses</h2>
+				<ul>
+	      			<div class="links" id="coach"><li><a href="http://www.coachusa.com/">Coach USA</a></li></div>
+	      			<div class="links" id="greyhound"><li><a href="https://www.greyhound.com/">GreyHound</a></li></div>
+	      			<div class="links" id="megabus"><li><a href="https://us.megabus.com/">Megabus</a></li></div>
+	   			</ul>
+	   		</div>
 		</div>
 	</body>
 

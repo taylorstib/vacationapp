@@ -24,14 +24,14 @@ post '/budget' do
 		budget_items = Budget.new(session[:user_budget] , session[:transportation], session[:lodging], session[:amenities], session[:dining], session[:other]) 
 		session[:total_box_update] = budget_items.remaining.to_f
 
-	 else
+	 	else
 		params[:budget] ||= []
 		session[:user_budget] ||= []
 		session[:destination] = params[:destination]
 		session[:transportation_type] = params[:transportation_type]
 		session[:user_budget] = params[:budget].to_f
 		session[:total_box] = session[:user_budget].to_f
-	end
+		end
 	erb :budget, :locals => {:user_budget => session[:user_budget],
 							 :transportation => session[:transportation],
 							 :lodging => session[:lodging],
@@ -71,20 +71,20 @@ end
 post '/bills'  do
 
 	if 	params[:split_transportation] == "Split it!"
-		session[:result_transportation] = params[:transportation_bill].to_f/params[:transportation_user1].to_f
+		session[:result_transportation] = (params[:transportation_bill].to_f/params[:transportation_user1].to_f).round(2)
 		elsif
 			params[:split_lodging] == "Split it!"
-			session[:result_lodging] = params[:lodging_bill].to_f/params[:lodging_user1].to_f
+			session[:result_lodging] = (params[:lodging_bill].to_f/params[:lodging_user1].to_f).round(2)
 		elsif
 			params[:split_amenities] == "Split it!"
-			session[:result_amenities] = params[:amenities_bill].to_f/params[:amenities_user1].to_f
+			session[:result_amenities] = (params[:amenities_bill].to_f/params[:amenities_user1].to_f).round(2)
 		elsif
 			params[:split_dining] == "Split it!"
-			session[:result_dining] = params[:dining_bill].to_f/params[:dining_user1].to_f
+			session[:result_dining] = (params[:dining_bill].to_f/params[:dining_user1].to_f).round(2)
 		elsif
 			params[:split_other] == "Split it!"
-			session[:result_other] = params[:other_bill].to_f/params[:other_user1].to_f
-		end
+			session[:result_other] = (params[:other_bill].to_f/params[:other_user1].to_f).round(2)
+	end
 
 
 	erb :bills, :locals => {:user_budget => session[:user_budget],

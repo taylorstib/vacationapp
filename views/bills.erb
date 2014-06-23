@@ -1,58 +1,101 @@
-<!DOCTYPE html>
 <html>
-<head>
-	<link rel="stylesheet" type="text/css" href="style.css">
-	<title>Split your bills</title>
-</head>
-	
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" type="text/css" href="style_index.css">
+		<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css"> 
+		<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/base-min.css">
+		<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/forms-min.css">
+		<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+		<title>Split your bills</title>
+	</head>
 	<body>
-		<div id="navbar">
-			<a href="/">Home</a> | <a href="budget">Budget</a> | <a href="bills">Bills</a> | <a href="checklist">To Do</a> | <a href="amenities">Amenities</a> | <a href="transportation">Transportation</a> | <a href="lodging">Lodging</a> | <a href="print">Print</a>
-		</div>
-	
-		<div>
-			 	<label> Total Budget </label> <input type="number" name="totalbudget" value=<%= session[:user_budget] %>>
-			 	<br>
 
-			 	<form action="/bills" method="post">
+
+
+	<div class="navbar">
+    	<div class="home-menu pure-menu pure-menu-open pure-menu-horizontal pure-menu-fixed">
+        	<ul>
+            	<li class="pure-menu-selected"><a href="/">Home</a></li>
+            	<li><a href="checklist">To Do</a></li>
+            	<li><a href="budget">Budget</a></li>
+            	<li><a href="bills">Splitting Bills</a></li>
+            	<li><a href="transportation">Transportation</a></li>
+            	<li><a href="lodging">Lodging</a></li>
+            	<li><a href="print">Print-out Page</a></li>
+        	</ul>
+    	</div>
+	</div>
+
+	  <h1>We Are Here to Help You Split Your Bills</h1>
+
+
+<!-- 	  	<div class="pure-u-1-1">
+			 <label> Total Budget </label> <input type="number" name="totalbudget" value=<%= session[:user_budget] %>>
+			<div class="pure-u-1-1"> -->
+	  
+	  <div class="theform_split">
+		<div class="pure-g">
+
+
+			 	<div class="pure-u-1-2">
+			 	<form action="/bills" method="post" class="pure-form pure-form-stacked">
+			 	<fieldset>
 			 	<label>Transportation</label><input type="number" name="transportation_bill" value=<%= session[:transportation] %>>
-				 	<label>Split by how many? </label> <input type="number" name="transportation_user1">
-				<input type="submit" name="split_transportation" value="Split it!" id="btn">
+				 	<label>Split by how many? </label> <input class="pure-input-1-4" type="number" name="transportation_user1">
+				<input class="button-secondary pure-button" type="submit" name="split_transportation" value="Split it!">
+				<i class="fa fa-money fa-lg"></i> <%= session[:result_transportation]%>
+				<fieldset>
 				</form>
-				<div> Transportation split: <%= session[:result_transportation]%> </div>
-				<br>
+				</div>
 
-				<form action="/bills" method="post">
+
+				<div class="pure-u-1-2">
+			 	<form action="/bills" method="post" class="pure-form pure-form-stacked">
+			 	<fieldset>
 			 	<label>Lodging</label><input type="number" name="lodging_bill" value=<%= session[:lodging] %>>
-				 	<label>Split by how many?</label> <input type="number" name="lodging_user1">
-				<input type="submit" name="split_lodging" value="Split it!" id="btn">
+				 	<label>Split by how many?</label> <input class="pure-input-1-4" type="number" name="lodging_user1">
+				<input class="button-secondary pure-button" type="submit" name="split_lodging" value="Split it!">
+				<i class="fa fa-money fa-lg"></i><%= session[:result_lodging]%>
+				</fieldset>
 				</form>
-				<div> Lodging split: <%= session[:result_lodging]%> </div>
-				<br>
+				</div>
 
-				<form action="/bills" method="post">
+				<div class="pure-u-1-2">
+				<form action="/bills" method="post" class="pure-form pure-form-stacked">
+			 	<fieldset>
 			 	<label>Amenities</label><input type="number" name="amenities_bill" value=<%= session[:amenities] %>>
-				 	<label>Split by how many?</label> <input type="number" name="amenities_user1">
-				<input type="submit" name="split_amenities" value="Split it!" id="btn">
+				 	<label>Split by how many?</label> <input class="pure-input-1-4" type="number" name="amenities_user1">
+				<input class="button-secondary pure-button" type="submit" name="split_amenities" value="Split it!">
+				<i class="fa fa-money fa-lg"></i><%= session[:result_amenities]%>
+				</fieldset>
 				</form>
-				<div> Amenities split: <%= session[:result_amenities]%> </div>
-				<br>
+				</div>
 
-				<form action="/bills" method="post">
+				<div class="pure-u-1-2">
+				<form action="/bills" method="post" class="pure-form pure-form-stacked">
+			 	<fieldset>
 			 	<label>Dining</label><input type="number" name="dining_bill" value=<%= session[:dining] %>>
-				 	<label>Split by how many?</label> <input type="number" name="dining_user1">
-				 <input type="submit" name="split_dining" value="Split it!" id="btn">
-				 </form>
-				 	<div> Dining split: <%= session[:result_dining]%> </div>
-				 <br>
-
-				<form action="/bills" method="post">
-			 	<label>Other costs (insurance, visa, vaccines, etc)</label><input type="number" name="other_bill" value=<%= session[:other] %>>
-				 	<label>Split by how many?</label> <input type="number" name="other_user1">
-				<input type="submit" name="split_other" value="Split it!" id="btn">
+				 	<label>Split by how many?</label> <input class="pure-input-1-4" type="number" name="dining_user1">
+				 <input class="button-secondary pure-button" type="submit" name="split_dining" value="Split it!">
+				 <i class="fa fa-money fa-lg"></i> <%= session[:result_dining]%>
+				</fieldset>
 				</form>
-				<div> Other costs split: <%= session[:result_other]%> </div>
-				<br>
-		</div>
+				</div>
+
+				<div class="pure-u-1-2">
+				<form action="/bills" method="post" class="pure-form pure-form-stacked">
+			 	<fieldset>
+			 	<label>Other costs </label><input type="number" name="other_bill" value=<%= session[:other] %>>
+				 	<label>Split by how many?</label> <input  class="pure-input-1-4" type="number" name="other_user1">
+				<input class="button-secondary pure-button" type="submit" name="split_other" value="Split it!">
+				<i class="fa fa-money fa-lg"></i> <%= session[:result_other]%>
+				</fieldset>
+				</form>
+				</div>
+
+			</div>
+		  </div>
 	</body>
 </html>
