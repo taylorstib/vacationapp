@@ -1,4 +1,4 @@
-require 'pry'
+
 
 class Budget
 	def initialize(user_budget, transportation, lodging, amenities, dining, other)
