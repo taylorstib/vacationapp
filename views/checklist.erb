@@ -12,6 +12,8 @@
 	</head>
 	<body>
 
+	<h1>Here Is a List of Things To Do</h1>
+
 	<div class="navbar">
     	<div class="home-menu pure-menu pure-menu-open pure-menu-horizontal pure-menu-fixed">
         	<ul>
@@ -29,10 +31,10 @@
 	<br>
 			<ul>
 				<% array_todo.each do |item| %>
-					<i class="fa fa-square-o"></i><li><%= item %></li>
+					<li class="todo"><%= item %></li>
 				<% end %>
 				<% user_todo.each do |user_item| %>
-					<li><%= user_item %></li>
+					<li class="todo"><%= user_item %></li>
 				<% end %>
 
 			</ul>
