@@ -40,14 +40,14 @@
 
 
 			 	<div class="pure-u-1-2">
-			 	<form action="/bills" method="post" class="pure-form pure-form-stacked">
-			 	<fieldset>
-			 	<label>Transportation</label><input type="number" name="transportation_bill" value=<%= session[:transportation] %>>
-				 	<label>Split by how many? </label> <input class="pure-input-1-4" type="number" name="transportation_user1">
-				<input class="button-secondary pure-button" type="submit" name="split_transportation" value="Split it!">
-				<i class="fa fa-money fa-lg"></i> <%= session[:result_transportation]%>
-				<fieldset>
-				</form>
+				 	<form action="/bills" method="post" class="pure-form pure-form-stacked">
+					 	<fieldset>
+						 	<label>Transportation</label><input type="number" name="transportation_bill" value=<%= session[:transportation] %>>
+						 	<label>Split by how many? </label> <input class="pure-input-1-4" type="number" name="transportation_user1">
+							<input class="button-secondary pure-button" type="submit" name="split_transportation" value="Split it!">
+							<i class="fa fa-money fa-lg"></i> <%= session[:result_transportation]%>
+						<fieldset>
+					</form>
 				</div>
 
 

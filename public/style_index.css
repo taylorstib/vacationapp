@@ -73,7 +73,10 @@ label{
 	font-size: 24px;
 	margin: 6px 0 6px 10px;
 	padding: 5px;
-	border:1px solid red;
+	color: beige;
+	background-color: #4C1B1B;
+	width: 420px;
+	border-radius: 10px;
 }
 
 
