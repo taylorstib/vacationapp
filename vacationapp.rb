@@ -1,7 +1,6 @@
 require 'sinatra'
-require 'sinatra/reloader'
+# require 'sinatra/reloader'
 require_relative 'budget.rb'
-require 'pry'
 
 configure do
 	enable :sessions
